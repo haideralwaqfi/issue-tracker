@@ -1,5 +1,5 @@
 import "@radix-ui/themes/styles.css";
-import "./theme-config.css";
+// import "./theme-config.css";
 import "./globals.css";
 import { Theme, ThemePanel } from "@radix-ui/themes";
 import type { Metadata } from "next";
