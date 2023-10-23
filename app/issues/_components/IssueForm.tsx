@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Issue } from "@prisma/client";
 import { Button, Callout, TextField } from "@radix-ui/themes";
 import axios from "axios";
+import { log } from "console";
 import "easymde/dist/easymde.min.css";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
@@ -33,7 +34,9 @@ function IssueForm({ issue }: { issue: Issue }) {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      await axios.post("/api/issues", data);
+      if (issue) await axios.patch("/api/issues/" + issue.id, data);
+      else await axios.post("/api/issues", data);
+
       router.push("/issues/");
       setIsSubmitting(true);
     } catch (error) {
@@ -71,7 +74,7 @@ function IssueForm({ issue }: { issue: Issue }) {
         <ErrorMessage>{errors.description?.message}</ErrorMessage>
 
         <Button disabled={isSubmitting}>
-          Submit New Issue{" "}
+          {issue ? "Update this issue" : "Submit New Issue"}{" "}
           {isSubmitting && <Spinner width={4} height={4} border={2} />}
         </Button>
       </form>
