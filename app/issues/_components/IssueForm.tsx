@@ -73,7 +73,7 @@ function IssueForm({ issue }: { issue: Issue }) {
 
         <Button disabled={isSubmitting}>
           {issue ? "Update this issue" : "Submit New Issue"}{" "}
-          {isSubmitting && <Spinner width={4} height={4} border={2} />}
+          {isSubmitting && <Spinner />}
         </Button>
       </form>
     </div>
