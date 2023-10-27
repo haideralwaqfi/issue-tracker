@@ -5,13 +5,13 @@ import React from "react";
 
 function IssueEditButton({ issueId }: { issueId: number }) {
   return (
-    <Button>
-      <Link href={`/issues/${issueId}/edit`}>
+    <Link href={`/issues/edit/${issueId}`}>
+      <Button className="w-full hover:cursor-pointer">
         <Flex gap="2">
           <Pencil2Icon /> <span>Edit</span>
         </Flex>
-      </Link>
-    </Button>
+      </Button>
+    </Link>
   );
 }
 
