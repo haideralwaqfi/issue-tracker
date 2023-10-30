@@ -27,7 +27,7 @@ async function page({ params }: Props) {
       {session && (
         <Box>
           <Flex direction="column" gap="3">
-            <AssigneeSelect />
+            <AssigneeSelect issue={issue} />
             <IssueEditButton issueId={issue.id} />
             <DeleteIssueButton issueId={issue.id} />
           </Flex>
