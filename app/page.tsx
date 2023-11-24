@@ -9,7 +9,7 @@ export default function Home({
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Pagination
-        currentPage={parseInt(searchParams.page)}
+        currentPage={parseInt(searchParams.page) || 1}
         pageSize={10}
         itemCount={100}
       />
